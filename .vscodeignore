@@ -1,0 +1,14 @@
+.vscode/**
+.vscode-test/**
+out/test/**
+src/**
+.gitignore
+.vscodeignore
+tsconfig.json
+terminal_style_icon.png
+basic_extension_icon.png
+extension_icon_*.png
+vsc-extension-quickstart.md
+package-lock.json
+**/*.map
+**/*.ts
