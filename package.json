@@ -15,6 +15,7 @@
     "type": "git",
     "url": "https://github.com/aravind9643/Quick-Command-Runner.git"
   },
+  "license": "MIT",
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
