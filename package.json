@@ -11,6 +11,10 @@
     "Other"
   ],
   "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aravind9643/Quick-Command-Runner.git"
+  },
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
