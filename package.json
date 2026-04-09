@@ -1,0 +1,203 @@
+{
+  "name": "quick-command-runner",
+  "displayName": "Quick Command Runner",
+  "description": "Save commands in folders and run them with ease.",
+  "version": "0.1.0",
+  "publisher": "AravindMerugu",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "icon.png",
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "command-runner-container",
+          "title": "Command Runner",
+          "icon": "$(terminal)"
+        }
+      ]
+    },
+    "views": {
+      "command-runner-container": [
+        {
+          "id": "commandRunnerView",
+          "name": "Commands",
+          "icon": "$(terminal)"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "commandRunner.addCommand",
+        "title": "Add Command",
+        "icon": "$(add)"
+      },
+      {
+        "command": "commandRunner.addCommandToFolder",
+        "title": "Add Command to Folder",
+        "icon": "$(add)"
+      },
+      {
+        "command": "commandRunner.runCommand",
+        "title": "Run Command",
+        "icon": "$(play)"
+      },
+      {
+        "command": "commandRunner.refresh",
+        "title": "Refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "commandRunner.deleteEntry",
+        "title": "Delete",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "commandRunner.addFolder",
+        "title": "Add Folder",
+        "icon": "$(new-folder)"
+      },
+      {
+        "command": "commandRunner.editEntry",
+        "title": "Edit",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "commandRunner.export",
+        "title": "Export JSON",
+        "icon": "$(cloud-upload)"
+      },
+      {
+        "command": "commandRunner.import",
+        "title": "Import JSON",
+        "icon": "$(cloud-download)"
+      },
+      {
+        "command": "commandRunner.runAllInFolder",
+        "title": "Run All in Folder",
+        "icon": "$(run-all)"
+      },
+      {
+        "command": "commandRunner.toggleActive",
+        "title": "Toggle Active/Inactive",
+        "icon": "$(circle-slash)"
+      },
+      {
+        "command": "commandRunner.setIcon",
+        "title": "Set Icon",
+        "icon": "$(file-media)"
+      },
+      {
+        "command": "commandRunner.toggleConfirm",
+        "title": "Toggle Confirmation Prompt",
+        "icon": "$(question)"
+      },
+      {
+        "command": "commandRunner.setEnv",
+        "title": "Set Environment Variables",
+        "icon": "$(key)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "commandRunner.addCommand",
+          "when": "view == commandRunnerView",
+          "group": "navigation@1"
+        },
+        {
+          "command": "commandRunner.addFolder",
+          "when": "view == commandRunnerView",
+          "group": "navigation@2"
+        },
+        {
+          "command": "commandRunner.export",
+          "when": "view == commandRunnerView",
+          "group": "navigation@3"
+        },
+        {
+          "command": "commandRunner.import",
+          "when": "view == commandRunnerView",
+          "group": "navigation@4"
+        },
+        {
+          "command": "commandRunner.refresh",
+          "when": "view == commandRunnerView",
+          "group": "navigation@5"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "commandRunner.runCommand",
+          "when": "view == commandRunnerView && viewItem == command",
+          "group": "inline"
+        },
+        {
+          "command": "commandRunner.addCommandToFolder",
+          "when": "view == commandRunnerView && viewItem == commandRunnerFolder",
+          "group": "inline"
+        },
+        {
+          "command": "commandRunner.runAllInFolder",
+          "when": "view == commandRunnerView && viewItem == commandRunnerFolder",
+          "group": "inline"
+        },
+        {
+          "command": "commandRunner.toggleActive",
+          "when": "view == commandRunnerView && viewItem == command",
+          "group": "inline"
+        },
+        {
+          "command": "commandRunner.toggleActive",
+          "when": "view == commandRunnerView && viewItem == commandInactive",
+          "group": "inline"
+        },
+        {
+          "command": "commandRunner.toggleConfirm",
+          "when": "view == commandRunnerView && viewItem == command",
+          "group": "2_settings"
+        },
+        {
+          "command": "commandRunner.setIcon",
+          "when": "view == commandRunnerView && viewItem =~ /^command(Inactive)?$/",
+          "group": "3_mod"
+        },
+        {
+          "command": "commandRunner.setEnv",
+          "when": "view == commandRunnerView && viewItem =~ /^command(Inactive)?$/",
+          "group": "3_mod"
+        },
+        {
+          "command": "commandRunner.editEntry",
+          "when": "view == commandRunnerView",
+          "group": "inline"
+        },
+        {
+          "command": "commandRunner.deleteEntry",
+          "when": "view == commandRunnerView",
+          "group": "inline"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/node": "^20.x",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.4.5",
+    "tslib": "^2.6.2"
+  }
+}
