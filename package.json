@@ -2,7 +2,7 @@
   "name": "quick-command-runner",
   "displayName": "Quick Command Runner",
   "description": "Save commands in folders and run them with ease.",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "publisher": "AravindMerugu",
   "engines": {
     "vscode": "^1.90.0"
